@@ -1,0 +1,45 @@
+# WukongGM — one command per line. Blank lines and # comments are ignored.
+# Press F7 in game to run everything below. The file is re-read on every
+# press, so you can edit it without restarting.
+#
+# Save as ASCII or UTF-8 WITHOUT a BOM (Notepad: Save As -> Encoding: ANSI).
+# A BOM puts three invisible bytes in front of your first command and it will
+# silently do nothing.
+#
+# You must be IN GAMEPLAY, not at the main menu.
+
+additem 1002 100000
+
+# ---------------------------------------------------------------------------
+# Uncomment what you want. Full reference in docs/commands.md.
+# ---------------------------------------------------------------------------
+
+# --- currency and progression ---
+# additem 1002 1000000    # Will — levelling and crafting currency
+# addexp 100000           # Sparks (skill points), NOT Will
+# addtalentpoint 50
+
+# --- bulk unlocks ---
+# allitem
+# allweapon
+# allequip
+# allspell
+# alltalent
+# allhulu
+# allseeds
+# allrecipe
+# allsoulskill
+# allmedition 1           # 1 = unlocked as if you have the Sage's Ear
+# allmap
+# allcard
+
+# --- targeted ---
+# additem <id> <count>
+# addspell <spellId>
+# setspell <spellId>      # grant and equip
+# addtalent <talentId>
+# armortotop <armorId>
+# setchapter 30
+
+# --- DANGEROUS: wipes progress, requires allow_dangerous = true ---
+# clearrolebag            # level 0, empties bag / talents / spells

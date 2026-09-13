@@ -1,0 +1,14 @@
+# WukongGM configuration
+# Save this file as ASCII or UTF-8 WITHOUT a BOM.
+# In Notepad: Save As -> Encoding: ANSI.
+
+# Keys. Any UE4SS key name works: F1-F12, NUM_ZERO, INS, DEL, etc.
+# Avoid F10 — UE4SS's ConsoleEnablerMod already uses it.
+key_run      = F7
+key_diagnose = F8
+key_unlock   = F9
+
+# Commands that wipe progress (clearrolebag, clearitem, clearcard, ...) are
+# skipped unless this is true. clearrolebag sets your character to level 0 and
+# empties bag, talents and spells. There is no undo.
+allow_dangerous = false
