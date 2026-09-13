@@ -1,0 +1,16 @@
+# Normalise line endings so clones on any OS produce identical mod files.
+* text=auto eol=lf
+
+# Windows-native tooling keeps CRLF.
+*.ps1 text eol=crlf
+
+# Files the game reads directly. LF keeps them byte-identical across
+# platforms; encoding must stay ASCII / UTF-8 without BOM (see README).
+*.lua text eol=lf
+*.txt text eol=lf
+*.md  text eol=lf
+
+# Never touch binaries.
+*.zip binary
+*.png binary
+*.jpg binary
