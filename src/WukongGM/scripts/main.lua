@@ -1,7 +1,7 @@
 --[[
   WukongGM — run Black Myth: Wukong's own GM commands from UE4SS.
 
-  https://github.com/<your-handle>/WukongGM
+  https://github.com/lazyassin/WukongGM
 
   Works by calling the game's RunScriptGM UFunction directly, so it does not
   need the in-game console, a C# loader, or any version-specific offsets.
