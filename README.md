@@ -46,26 +46,46 @@ Nothing else. No CSharpLoader, no ReShade, no console mod.
 
 ## Use
 
-Edit `Mods\WukongGM\commands.txt`, one command per line, then press **F7**
-in game. The file is re-read every press, so no restart between edits.
+### Pick items by name
+
+Open `Mods\WukongGM\items.txt`, put a number next to what you want, save, and
+press **F7** in game:
+
+```
+# --- Crafting materials ---
+Refined Iron Sand                      = 0
+Gold Tree Core                         = 50
+Kun Steel                              = 0
+```
+
+Anything left at `0` is skipped. Names match ignoring case and spacing, so
+`gold tree core` works too. Unrecognised names are reported by name in the
+log, so a typo is visible rather than silently doing nothing.
+
+Pressing F7 again re-adds everything still above 0, so reset to `0` when done.
+
+### Raw commands
+
+`Mods\WukongGM\commands.txt` takes GM commands directly, one per line, for
+anything that is not an item:
+
+```
+allweapon
+addtalentpoint 50
+allmedition 1
+```
+
+F7 runs `items.txt` first, then `commands.txt`. Both are re-read on every
+press, so no restart between edits. **Nothing is active by default.**
 
 | key | action |
 |-----|--------|
-| F7  | run every command in `commands.txt` |
-| F8  | diagnostics — reports what resolved |
+| F7  | run `items.txt` and `commands.txt` |
+| F8  | diagnostics |
 | F9  | unlock-all preset |
+| F4  | dump equipment ids |
 
-Rebind in `config.txt`.
-
-Output goes to `ue4ss\UE4SS.log`.
-
-### Example
-
-```
-additem 1002 100000
-allweapon
-allspell
-```
+Rebind in `config.txt`. Output goes to `ue4ss\UE4SS.log`.
 
 ## Encoding gotcha
 
