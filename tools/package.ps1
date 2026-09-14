@@ -70,7 +70,14 @@ foreach ($doc in @("README.md", "LICENSE", "CHANGELOG.md", "THIRD-PARTY.md")) {
     if (Test-Path $p) { Copy-Item $p -Destination (Join-Path $stage "WukongGM") -Force }
 }
 $docs = Join-Path $root "docs"
-if (Test-Path $docs) { Copy-Item $docs -Destination (Join-Path $stage "WukongGM\docs") -Recurse -Force }
+if (Test-Path $docs) {
+    Copy-Item $docs -Destination (Join-Path $stage "WukongGM\docs") -Recurse -Force
+    # Upload instructions are for the author, not for players.
+    foreach ($authorOnly in @("nexus-page.md", "images")) {
+        $p2 = Join-Path $stage "WukongGM\docs\$authorOnly"
+        if (Test-Path $p2) { Remove-Item -LiteralPath $p2 -Recurse -Force }
+    }
+}
 
 # Bundled shared libraries. The zip mirrors ue4ss\Mods\ so users extract once
 # and both WukongGM\ and shared\ land in the right place.
