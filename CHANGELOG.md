@@ -76,3 +76,22 @@ Initial release.
 - `package.ps1` fails the build on any non-ASCII character in shipped `.lua` or
   `.txt` files, alongside the existing BOM check. Both are silent-failure bugs
   that look fine in an editor.
+
+## [1.2.0] — 2026-09-14
+
+### Added
+- `items.txt` — pick items by **name** instead of id. Every known item is
+  listed with a quantity; set a number, save, press F7. Names match ignoring
+  case and spacing, and unrecognised names are reported so typos are visible.
+- `wishlist.lua` resolves names to ids against the item database.
+
+### Changed
+- F7 now runs `items.txt` first, then `commands.txt`.
+- `commands.txt` ships with **no active lines**. It previously shipped with a
+  live `additem 1002 100000`, which ran on every press whether you wanted it
+  or not. A default config should do nothing until asked.
+- The file watcher is disabled and parked. `RegisterHook` works on this build,
+  but hooking a name the game lacks raises an error `pcall` cannot contain,
+  which tears down the whole script and takes the keybinds with it. `Start`
+  now verifies a UFunction exists before registering, but the feature is not
+  needed: editing a file and pressing a key already covers it.

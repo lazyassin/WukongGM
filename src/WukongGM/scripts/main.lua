@@ -17,9 +17,10 @@
 local gm       = require("gm")
 local commands = require("commands")
 local items    = require("items")
+local wishlist = require("wishlist")
 
 local MOD_NAME    = "WukongGM"
-local MOD_VERSION = "1.1.1"
+local MOD_VERSION = "1.2.0"
 local CONFIG_PATH = "ue4ss/Mods/WukongGM/config.txt"
 
 local Log = gm.Log
@@ -104,7 +105,7 @@ local config = {
     menu_cursor_mode = "engine",
     menu_z           = "30000",
     watch_enabled     = false,
-    watch_interval_ms = "500",
+    watch_throttle    = "60",
 }
 
 --- Minimal key=value parser. Deliberately not JSON: users edit this by hand
@@ -162,6 +163,23 @@ local function RunCommandFile()
 
     Log(string.format("running %d command(s) from %s", #filtered, path))
     local sent, total = gm.RunAll(filtered)
+    Log(string.format("dispatched %d/%d - verify in game", sent, total))
+end
+
+--- Items chosen by name in items.txt, which is the friendlier route: users
+--- pick "Gold Tree Core" rather than remembering that it is id 3961.
+local function RunWishlist()
+    local list, skipped, unknown = wishlist.Load()
+    if #list == 0 and skipped == 0 then return end
+
+    if skipped > 0 then
+        Log(skipped .. " name(s) in items.txt not recognised:")
+        for _, n in ipairs(unknown) do Log("    " .. n) end
+    end
+    if #list == 0 then return end
+
+    Log(string.format("items.txt: %d item(s) requested", #list))
+    local sent, total = gm.RunAll(list)
     Log(string.format("dispatched %d/%d - verify in game", sent, total))
 end
 
@@ -338,7 +356,7 @@ end
 LoadConfig()
 
 local bindings = {
-    { key = config.key_run,      fn = RunCommandFile,                        label = "run commands.txt" },
+    { key = config.key_run,      fn = function() RunWishlist(); RunCommandFile() end,                        label = "run commands.txt" },
     { key = config.key_diagnose, fn = Diagnose,                              label = "diagnostics" },
     { key = config.key_unlock,   fn = function() RunPreset("unlock_all") end, label = "unlock-all preset" },
     { key = config.key_raise,    fn = function() RaiseOverlay(tonumber(config.menu_z) or 30000) end, label = "raise overlay above game UI" },
@@ -363,7 +381,7 @@ if config.watch_enabled then
     local wok, watch = pcall(require, "watch")
     if wok then
         pcall(watch.Start, {
-            intervalMs = tonumber(config.watch_interval_ms) or 500,
+            throttle = tonumber(config.watch_throttle) or 60,
             allowDangerous = config.allow_dangerous,
         })
         watchRunning = watch.IsRunning()

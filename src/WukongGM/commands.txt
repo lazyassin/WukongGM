@@ -8,7 +8,10 @@
 #
 # You must be IN GAMEPLAY, not at the main menu.
 
-additem 1002 100000
+# Nothing is active by default. Uncomment a line below, or use items.txt
+# to pick items by name instead.
+#
+# additem 1002 100000
 
 # ---------------------------------------------------------------------------
 # Uncomment what you want. Full reference in docs/commands.md.

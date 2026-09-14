@@ -37,4 +37,6 @@ allow_dangerous = false
 # File watcher. Runs any command appended to live.txt, no keypress needed.
 # This is what tools/console.ps1 talks to.
 watch_enabled     = false
-watch_interval_ms = 500
+# How many hooked-function calls between checks. The hook fires per frame,
+# so 60 is roughly once a second.
+watch_throttle    = 60

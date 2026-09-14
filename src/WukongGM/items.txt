@@ -1,0 +1,106 @@
+# WukongGM - item wishlist
+#
+# Put a number next to anything you want, save this file, and press F7 in game.
+# Leave it at 0 to skip. Example:
+#
+#     Gold Tree Core                 = 50
+#
+# Names are matched ignoring case and spacing. Lines starting with # are
+# ignored, so you can comment things out.
+#
+# Save as ANSI, not UTF-8 (Notepad: Save As -> Encoding: ANSI).
+#
+# Pressing F7 again re-adds everything still set above 0, so reset to 0 when
+# you are done.
+
+# --- Currency ---
+Will                                   = 0
+
+# --- Formulas ---
+Ascension Powder Formula               = 0
+Evil Repelling Medicament Formula      = 0
+Enhanced Ginseng Pellets Formula       = 0
+Enhanced Tiger Subduing Pellets Formula = 0
+
+# --- Wine and brewing ---
+Awaken Wine Worm                       = 0
+Luojia Fragrant Vine                   = 0
+Coconut Wine                           = 0
+Loong Balm                             = 0
+
+# --- Medicine and pellets ---
+Body-Warming Powder                    = 0
+Antimiasma Powder                      = 0
+Shock-Quelling Powder                  = 0
+Life-Saving Pill                       = 0
+Ascension Powder                       = 0
+Tonifying Enhancing Medicine           = 0
+Amplification Pellets                  = 0
+Tiger Subduing Pellets                 = 0
+Longevity Enhancing Medicine           = 0
+Fortifying Medicament                  = 0
+Evil Repelling Medicament              = 0
+Enhanced Ginseng Pellets               = 0
+Enhanced Tiger Subduing Pellets        = 0
+Incense Trail Talisman                 = 0
+
+# --- Soak ingredients ---
+Mount Lingtai Seedlings                = 0
+Laurel Buds                            = 0
+Deathstinger                           = 0
+Purple-Veined Peach Pit                = 0
+Bee Mountain Stone                     = 0
+Goji Shoots                            = 0
+Fruit of Dao                           = 0
+Gall Gem                               = 0
+
+# --- Herbs and ores ---
+Licorice                               = 0
+Aged Ginseng                           = 0
+Fragrant Jade Flower                   = 0
+Purple Lingzhi                         = 0
+Fire Bellflower                        = 0
+Gentian                                = 0
+Tree Pearl                             = 0
+Celestial Pear                         = 0
+Withered Silkworm                      = 0
+Nine-Capped Lingzhi                    = 0
+Flame Ore                              = 0
+Jade Lotus                             = 0
+Snake-Head Mushroom                    = 0
+Golden Lotus                           = 0
+
+# --- Curios and valuables ---
+Mind Core                              = 0
+Tadpole                                = 0
+Gold Ridge Beast                       = 0
+Buddha's Right Hand                    = 0
+Tiny Piece of Gold                     = 0
+Small Piece of Gold                    = 0
+Large Piece of Gold                    = 0
+Blood of the Iron Bull                 = 0
+Knot of Voidness                       = 0
+
+# --- Crafting materials ---
+Celestial Ribbon                       = 0
+Jade Fang                              = 0
+Flame Ebongold                         = 0
+Spider Leg                             = 0
+Starlit Cloud-Bidden Antler            = 0
+Loong Pearl                            = 0
+Sky-Piercing Horn                      = 0
+Venomous Hair                          = 0
+Yarn                                   = 0
+Silk                                   = 0
+Cold Iron Leaves                       = 0
+Fine Gold Thread                       = 0
+Stone Spirit                           = 0
+Yaoguai Core                           = 0
+Refined Iron Sand                      = 0
+Gold Tree Core                         = 0
+Kun Steel                              = 0
+
+# --- Seeds ---
+Nine-Capped Lingzhi Seed               = 0
+Fragrant Jade Flower Seed              = 0
+Fire Bellflower Seed                   = 0
