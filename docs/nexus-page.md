@@ -117,6 +117,87 @@ along with every known item ID and which ones are verified.
 
 ---
 
+## How to use
+
+Everything happens in two text files in `ue4ss\Mods\WukongGM\`. Edit, save,
+press F7 in game. Both files are re-read on every press, so you never need to
+restart the game.
+
+You must be IN GAMEPLAY. Nothing works from the main menu - there is no game
+world for the commands to act on.
+
+### Items - pick by name
+
+Open items.txt. Every known item is listed with a quantity. Put a number next
+to what you want and save:
+
+    Gold Tree Core                 = 50
+    Refined Iron Sand              = 0
+    Will                           = 100000
+
+Press F7. Anything left at 0 is skipped.
+
+Names are matched ignoring case and spacing, so "gold tree core" works too.
+Anything it does not recognise is listed by name in the log, so a typo is
+visible rather than silently doing nothing.
+
+Pressing F7 again adds everything still above 0 a second time. Set values back
+to 0 when you are done.
+
+### Commands - everything that is not an item
+
+Open commands.txt, one command per line. Lines starting with # are ignored, so
+you can keep a library and enable things by uncommenting:
+
+    allweapon
+    alltalent
+    addtalentpoint 50
+    allmedition 1
+
+Press F7. It runs items.txt first, then commands.txt.
+
+Nothing is active by default - a fresh install does nothing until you ask.
+
+### Keys
+
+    F7   run items.txt, then commands.txt
+    F8   diagnostics - reports what the mod resolved
+    F9   unlock everything preset
+    F4   dump the game's equipment IDs to a file
+
+Rebind them in config.txt.
+
+### Checking what happened
+
+Output goes to `ue4ss\UE4SS.log`. A successful run looks like:
+
+    [WukongGM] items.txt: 1 item(s) requested
+    [WukongGM]   additem 3961 50 -> RunScriptGM
+    [WukongGM] dispatched 1/1 - verify in game
+
+Important: "dispatched" means the call was made, not that the game acted on
+it. A command the game does not implement returns cleanly and does nothing.
+Always check in game.
+
+### If nothing happens
+
+Press F8 and look at the log.
+
+  "world context: NOT FOUND"     you are at the main menu - load a save
+  "managed library: NOT FOUND"   your game build differs - open a bug report
+  first line ignored             BOM in the file - resave as ANSI
+  dispatches but no effect       that command is not implemented on your build
+
+### File encoding
+
+items.txt and commands.txt must be saved as ANSI, not UTF-8.
+
+Notepad's default UTF-8 writes a hidden byte-order mark, and those invisible
+bytes become part of your first line, which then silently does nothing. In
+Notepad: Save As -> Encoding -> ANSI.
+
+---
+
 ## Requirements
 
 RE-UE4SS - required.
