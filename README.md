@@ -126,6 +126,24 @@ A dispatched command only means the call was made. An unimplemented command
 returns cleanly and does nothing, so always verify in game.
 
 
+## Why console-based mods fail on this game
+
+If you have tried other Wukong console mods and got `command not recognized`,
+the cause is not those mods. **UE4SS's console-command hook is dead on this
+game build.**
+
+Verified directly: `ConsoleCommandsMod` ships with UE4SS and registers
+`dump_object` through the standard `RegisterConsoleCommandHandler` API. Typing
+`dump_object` into the F10 console is rejected. Native engine commands
+(`stat fps`, `god`, `fly`) work normally.
+
+So the F10 console reaches the engine but never reaches Lua. Any mod that
+registers a console command — including the popular console mods — is
+registering a handler that will never be invoked. `RegisterConsoleCommandGlobalHandler`
+fails the same way.
+
+This mod avoids the problem entirely by using keybinds, which do work.
+
 ## Experimental: overlay and file watcher
 
 The repo also contains an in-game overlay (ModMenu) and a file watcher driven
