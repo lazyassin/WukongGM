@@ -2,28 +2,46 @@
 
 Commands accepted by `RunScriptGM`. Put them in `commands.txt`, one per line.
 
-Translated from the reference shipped with the Wukong console mod archive.
-Not every command is implemented in every game build — if one dispatches but
-does nothing, that build doesn't support it.
+## Provenance
+
+The command *names* are the game's own API — they exist in the shipping
+executable regardless of who writes them down.
+
+Which commands exist was learned from the reference bundled with SealHoo's
+[Black Myth Wukong Console Mod](https://www.nexusmods.com/blackmythwukong/mods/979).
+The wording, grouping and English descriptions below are this project's own;
+none of their file is reproduced. Credit to them for compiling the list.
+
+## Verification status
+
+Marked **[v]** below means confirmed working in game on the build this was
+developed against. Everything else comes from the reference and is untested
+here — if one dispatches and nothing happens, that build likely doesn't
+implement it.
+
+Verified: `additem 1002`, `addexp`, `allweapon`, `allitem`, `alltaskitem`,
+`allattritem`, `allrecipe`.
+
+PRs confirming more are welcome.
 
 ## Items
 
 | command | effect |
 |---------|--------|
-| `additem <id> <n>` | add `n` of item `id` |
+| `additem <id> <n>` **[v]** | add `n` of item `id` |
 | `costitem <id> <n>` | consume `n` of item `id` |
-| `allitem` | all materials and consumables (excludes wine) |
-| `alltaskitem` | all quest items |
-| `allattritem` | all attribute items |
+| `allitem` **[v]** | all materials and consumables (excludes wine) |
+| `alltaskitem` **[v]** | all quest items |
+| `allattritem` **[v]** | all attribute items |
 | `allwine` | all wine |
 | `allseeds` | all seeds |
-| `allrecipe` | all recipes |
+| `allrecipe` **[v]** | all recipes |
 
 ## Equipment
 
 | command | effect |
 |---------|--------|
-| `allweapon` | all weapons |
+| `allweapon` **[v]** | all weapons |
 | `allequip` | all equipment (one per set) |
 | `allhulu` | all gourds |
 | `armortotop <id>` | max out one armour piece |
@@ -33,7 +51,7 @@ does nothing, that build doesn't support it.
 
 | command | effect |
 |---------|--------|
-| `addexp <n>` | add Sparks — skill points, **not** Will |
+| `addexp <n>` **[v]** | add Sparks — skill points, **not** Will |
 | `addtalentpoint <n>` | add talent / cultivation points |
 | `addtalent <id>` | grant one talent |
 | `alltalent` | all talents |
