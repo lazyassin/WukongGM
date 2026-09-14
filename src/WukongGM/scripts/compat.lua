@@ -1,5 +1,5 @@
 --[[
-  compat.lua — smooths over differences between UE4SS builds.
+  compat.lua - smooths over differences between UE4SS builds.
 
   The UE4SS package commonly shipped for Black Myth: Wukong bundles UEHelpers
   version 2, which predates UEHelpers.GetGameInstance(). ModMenu calls it.

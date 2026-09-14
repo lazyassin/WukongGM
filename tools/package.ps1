@@ -42,6 +42,24 @@ if ($bomFiles.Count -gt 0) {
 }
 Write-Host "BOM check passed" -ForegroundColor Green
 
+# --- non-ASCII check ------------------------------------------------------
+# UE4SS's logger truncates a log line at the first non-ASCII byte, so an em
+# dash in a Log() string silently swallows the rest of the message.
+$nonAscii = @()
+Get-ChildItem $src -Recurse -File -Include *.lua,*.txt | ForEach-Object {
+    $n = 0
+    foreach ($ch in [System.IO.File]::ReadAllText($_.FullName).ToCharArray()) {
+        if ([int]$ch -gt 127) { $n++ }
+    }
+    if ($n -gt 0) { $nonAscii += "$($_.FullName)  ($n chars)" }
+}
+if ($nonAscii.Count -gt 0) {
+    Write-Host "ERROR: non-ASCII characters found - UE4SS log lines will be truncated:" -ForegroundColor Red
+    $nonAscii | ForEach-Object { Write-Host "  $_" -ForegroundColor Red }
+    throw "non-ASCII check failed"
+}
+Write-Host "non-ASCII check passed" -ForegroundColor Green
+
 # --- stage ---------------------------------------------------------------
 if (Test-Path $stage) { Remove-Item -LiteralPath $stage -Recurse -Force }
 New-Item -ItemType Directory -Path $stage -Force | Out-Null

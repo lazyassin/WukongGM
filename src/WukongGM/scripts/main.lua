@@ -1,5 +1,5 @@
 --[[
-  WukongGM — run Black Myth: Wukong's own GM commands from UE4SS.
+  WukongGM - run Black Myth: Wukong's own GM commands from UE4SS.
 
   https://github.com/lazyassin/WukongGM
 
@@ -9,7 +9,7 @@
   Default keys (rebind in config.txt):
     F6  open the overlay, if ModMenu is installed
     F7  run every command in commands.txt
-    F8  diagnostics — report what resolved
+    F8  diagnostics - report what resolved
     F9  unlock-all preset
     F10 is left alone; UE4SS's ConsoleEnablerMod uses it
 ]]
@@ -19,7 +19,7 @@ local commands = require("commands")
 local items    = require("items")
 
 local MOD_NAME    = "WukongGM"
-local MOD_VERSION = "1.1.0"
+local MOD_VERSION = "1.1.1"
 local CONFIG_PATH = "ue4ss/Mods/WukongGM/config.txt"
 
 local Log = gm.Log
@@ -55,7 +55,7 @@ end
 local function RaiseOverlay(z)
     local root = FindOverlayRoot()
     if not root then
-        Log("overlay root widget not found — cannot raise Z")
+        Log("overlay root widget not found - cannot raise Z")
         return
     end
     Log("overlay root: " .. root:GetFullName())
@@ -141,7 +141,7 @@ end
 local function RunCommandFile()
     local list, path = commands.Load()
     if not path then
-        Log("no command file found — expected one of:")
+        Log("no command file found - expected one of:")
         for _, p in ipairs(commands.SEARCH_PATHS) do Log("    " .. p) end
         return
     end
@@ -162,7 +162,7 @@ local function RunCommandFile()
 
     Log(string.format("running %d command(s) from %s", #filtered, path))
     local sent, total = gm.RunAll(filtered)
-    Log(string.format("dispatched %d/%d — verify in game", sent, total))
+    Log(string.format("dispatched %d/%d - verify in game", sent, total))
 end
 
 ---@param name string
@@ -171,7 +171,7 @@ local function RunPreset(name)
     if not preset then Log("unknown preset: " .. tostring(name)); return end
     Log("preset: " .. name)
     local sent, total = gm.RunAll(preset)
-    Log(string.format("dispatched %d/%d — verify in game", sent, total))
+    Log(string.format("dispatched %d/%d - verify in game", sent, total))
 end
 
 --- Dump every equipment id the game knows about.
@@ -277,7 +277,7 @@ local function SetupMenu()
 
     local ok, ModMenu = pcall(require, "ModMenu.ModMenu")
     if not ok or type(ModMenu) ~= "table" then
-        Log("ModMenu not found — keybinds only")
+        Log("ModMenu not found - keybinds only")
         Log("  install it to Mods/shared/ModMenu/ModMenu.lua for the overlay")
         return false
     end
@@ -387,5 +387,5 @@ end)
 local knownIds = 0
 for _ in pairs(items.known) do knownIds = knownIds + 1 end
 
-Log(string.format("%s v%s loaded — %d known item id(s), overlay %s",
+Log(string.format("%s v%s loaded - %d known item id(s), overlay %s",
     MOD_NAME, MOD_VERSION, knownIds, menuLoaded and "on" or "off") .. ", watcher " .. (watchRunning and "on" or "off"))

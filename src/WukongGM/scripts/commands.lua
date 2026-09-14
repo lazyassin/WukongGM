@@ -1,5 +1,5 @@
 --[[
-  commands.lua — reads the user's command file and exposes named presets.
+  commands.lua - reads the user's command file and exposes named presets.
 
   The command file is plain text, one command per line. Blank lines and lines
   beginning with # are ignored, so users can keep a commented library of

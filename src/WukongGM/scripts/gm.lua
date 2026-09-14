@@ -1,5 +1,5 @@
 --[[
-  gm.lua — the bridge to Black Myth: Wukong's own GM command system.
+  gm.lua - the bridge to Black Myth: Wukong's own GM command system.
 
   The game exposes its GM executor as a UFunction on a USharp function
   library. We resolve the class default object once and call through it, so
@@ -56,7 +56,7 @@ function M.GetCSLibrary()
 end
 
 --- Any live UObject in the loaded world works as a WorldContext. The player
---- controller is the most reliable one, and it only exists during gameplay —
+--- controller is the most reliable one, and it only exists during gameplay -
 --- calls made from the main menu will fail here, which is intended.
 ---@return UObject|nil
 function M.GetWorldContext()
@@ -79,7 +79,7 @@ end
 --- Execute one GM command.
 ---
 --- A successful return means the call was *dispatched*, not that the game
---- acted on it — an unimplemented command returns cleanly and does nothing.
+--- acted on it - an unimplemented command returns cleanly and does nothing.
 --- Always verify in game.
 ---@param command string
 ---@return boolean dispatched
@@ -91,7 +91,7 @@ function M.Run(command)
 
     local ctx = M.GetWorldContext()
     if not ctx then
-        M.Log("no WorldContext — load into gameplay before running commands")
+        M.Log("no WorldContext - load into gameplay before running commands")
         return false, nil
     end
 

@@ -63,3 +63,16 @@ Initial release.
 - Only `1002` (Will) is verified by this project. The rest are community
   reported and marked accordingly; ids are facts about the game, not anyone's
   authorship.
+
+## [1.1.1] — 2026-09-14
+
+### Fixed
+- Log messages were being truncated at the first non-ASCII character. UE4SS's
+  logger stops at that byte, so `WukongGM v1.1.0 loaded — 74 known item id(s)`
+  printed as `WukongGM v1.1.0 loaded ` and the next log entry ran onto the same
+  line. Em dashes and smart quotes in Lua strings are now plain ASCII.
+
+### Added
+- `package.ps1` fails the build on any non-ASCII character in shipped `.lua` or
+  `.txt` files, alongside the existing BOM check. Both are silent-failure bugs
+  that look fine in an editor.

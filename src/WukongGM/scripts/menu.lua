@@ -1,5 +1,5 @@
 --[[
-  menu.lua — optional in-game overlay, built on ModMenu.
+  menu.lua - optional in-game overlay, built on ModMenu.
 
   ModMenu is optional. main.lua only calls into here if the library resolves,
   so the mod still works on a keybind-only install.
@@ -40,7 +40,7 @@ local AMOUNTS = {
 --- the edges of a block quickly.
 local PROBE_STARTS = {}
 for start = 1000, 1240, 20 do
-    table.insert(PROBE_STARTS, { label = tostring(start) .. "–" .. tostring(start + 11), value = tostring(start) })
+    table.insert(PROBE_STARTS, { label = tostring(start) .. "-" .. tostring(start + 11), value = tostring(start) })
 end
 
 local function Log(msg) gm.Log(msg) end
@@ -61,7 +61,7 @@ end
 ---@param command string
 local function RunOne(command)
     if commands.IsDangerous(command) and not state.allowDangerous then
-        Log("blocked: " .. command .. " — tick 'Allow destructive commands' first")
+        Log("blocked: " .. command .. " - tick 'Allow destructive commands' first")
         return
     end
     local ok, route = gm.Run(command)
@@ -71,7 +71,7 @@ end
 ---@param list string[]
 local function RunMany(list)
     local sent, total = gm.RunAll(list)
-    Log(string.format("dispatched %d/%d — verify in game", sent, total))
+    Log(string.format("dispatched %d/%d - verify in game", sent, total))
 end
 
 --- Build a row of buttons from { label, command } pairs.
@@ -243,7 +243,7 @@ function M.Register(ModMenu)
                 label = "Re-resolve game objects",
                 onClick = function()
                     gm.InvalidateCache()
-                    Log("cache cleared — next command re-resolves")
+                    Log("cache cleared - next command re-resolves")
                 end,
             },
             { type = "separator" },

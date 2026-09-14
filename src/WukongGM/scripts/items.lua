@@ -1,5 +1,5 @@
 --[[
-  items.lua — known item IDs.
+  items.lua - known item IDs.
 
   Ids are grouped in blocks by category, which makes probing for unknown ones
   much cheaper: find one item in a block and its neighbours are the same kind.
@@ -8,7 +8,7 @@
       3xxx  herbs, curios, materials  6xxx  seeds
 
   `verified = true` means confirmed in game by this project. Everything else
-  is community-reported and unconfirmed here — a wrong id grants the wrong
+  is community-reported and unconfirmed here - a wrong id grants the wrong
   item, which is harmless but confusing, so check before trusting one.
 
   Add an id with:  additem <id> <count>

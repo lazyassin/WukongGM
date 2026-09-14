@@ -1,5 +1,5 @@
 --[[
-  watch.lua — executes commands written to a file, without a keypress.
+  watch.lua - executes commands written to a file, without a keypress.
 
   A companion console (tools/console.ps1) appends a command to live.txt; this
   poll loop picks it up within a tick, runs it, and truncates the file. The
@@ -7,7 +7,7 @@
 
   This exists because the in-game overlay route needs UMG widgets, and this
   game's Slate structs differ enough from the ones ModMenu targets that the
-  panel builds but never renders. Polling a file needs none of that — it is
+  panel builds but never renders. Polling a file needs none of that - it is
   the same mechanism the keybind path already uses, minus the key.
 ]]
 
@@ -86,7 +86,7 @@ function M.Start(opts)
     if probe then
         probe:close()
     else
-        Log("watch: cannot open " .. LIVE_PATH .. " — is the folder writable?")
+        Log("watch: cannot open " .. LIVE_PATH .. " - is the folder writable?")
         return
     end
 

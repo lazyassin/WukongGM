@@ -1,4 +1,4 @@
-# WukongGM — one command per line. Blank lines and # comments are ignored.
+# WukongGM - one command per line. Blank lines and # comments are ignored.
 # Press F7 in game to run everything below. The file is re-read on every
 # press, so you can edit it without restarting.
 #
@@ -15,7 +15,7 @@ additem 1002 100000
 # ---------------------------------------------------------------------------
 
 # --- currency and progression ---
-# additem 1002 1000000    # Will — levelling and crafting currency
+# additem 1002 1000000    # Will - levelling and crafting currency
 # addexp 100000           # Sparks (skill points), NOT Will
 # addtalentpoint 50
 
