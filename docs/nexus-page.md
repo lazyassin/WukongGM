@@ -28,8 +28,34 @@ No console. No C# loader. No hardcoded addresses. Because everything is
 resolved by name rather than by offset, it is not tied to a specific game
 version the way the older mods are.
 
-And you do not need item IDs. Open a text file, put a number next to the item
-you want by name, save, press a key.
+### There is no in-game menu, and here is why
+
+You use this by editing a text file, not by opening a panel. That is a
+deliberate choice, not a missing feature.
+
+An in-game menu needs the game to draw it, and on current builds it will not.
+I built one - it constructs correctly, reports itself open, and renders
+nothing, because this game's UI internals differ from what the modding tools
+expect. UE4SS's own built-in console window crashes the game at startup here.
+Every route to drawing something on screen is blocked by the same thing that
+breaks the other console mods.
+
+A text file needs none of that. Nothing to render means nothing to fail.
+
+In practice it is two lines of work. Open items.txt, which already lists every
+item by name:
+
+    Gold Tree Core                 = 0
+    Refined Iron Sand              = 0
+
+Change a zero to the amount you want, save, and press F7 in game:
+
+    Gold Tree Core                 = 50
+
+That is the whole workflow. No IDs to look up, no console to enable, no
+commands to memorise. The file is re-read every time you press the key, so you
+can leave it open in Notepad on a second monitor and keep editing while you
+play.
 
 Tested on the current retail build as of September 2026.
 
