@@ -145,6 +145,38 @@ along with every known item ID and which ones are verified.
 
 ## How to use
 
+### Your first item, step by step
+
+1. Open this file in Notepad:
+
+       <YourGame>\b1\Binaries\Win64\ue4ss\Mods\WukongGM\items.txt
+
+2. Scroll to the "Crafting materials" section and find this line:
+
+       Gold Tree Core                         = 0
+
+3. Change the 0 to how many you want:
+
+       Gold Tree Core                         = 50
+
+4. Save the file. Ctrl+S.
+   (First time only: File -> Save As -> Encoding: ANSI)
+
+5. Alt-tab into the game. You must be playing - loaded into the world, not
+   sitting on the main menu.
+
+6. Press F7.
+
+7. Open your inventory. You have 50 Gold Tree Core.
+
+That is it. Same for anything else in the list - Will, medicines, herbs,
+curios, seeds. Change a number, save, press F7.
+
+When you are finished, set the numbers back to 0, or they get added again
+every time you press F7.
+
+---
+
 Everything happens in two text files in `ue4ss\Mods\WukongGM\`. Edit, save,
 press F7 in game. Both files are re-read on every press, so you never need to
 restart the game.
