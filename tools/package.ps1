@@ -47,12 +47,20 @@ if (Test-Path $stage) { Remove-Item -LiteralPath $stage -Recurse -Force }
 New-Item -ItemType Directory -Path $stage -Force | Out-Null
 
 Copy-Item $src -Destination (Join-Path $stage "WukongGM") -Recurse -Force
-foreach ($doc in @("README.md", "LICENSE", "CHANGELOG.md")) {
+foreach ($doc in @("README.md", "LICENSE", "CHANGELOG.md", "THIRD-PARTY.md")) {
     $p = Join-Path $root $doc
     if (Test-Path $p) { Copy-Item $p -Destination (Join-Path $stage "WukongGM") -Force }
 }
 $docs = Join-Path $root "docs"
 if (Test-Path $docs) { Copy-Item $docs -Destination (Join-Path $stage "WukongGM\docs") -Recurse -Force }
+
+# Bundled shared libraries. The zip mirrors ue4ss\Mods\ so users extract once
+# and both WukongGM\ and shared\ land in the right place.
+$shared = Join-Path $root "src\shared"
+if (Test-Path $shared) {
+    Copy-Item $shared -Destination (Join-Path $stage "shared") -Recurse -Force
+    Write-Host "bundled shared libraries" -ForegroundColor Green
+}
 
 # --- zip -----------------------------------------------------------------
 if (Test-Path $zip) { Remove-Item -LiteralPath $zip -Force }

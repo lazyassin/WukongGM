@@ -3,12 +3,37 @@
 # In Notepad: Save As -> Encoding: ANSI.
 
 # Keys. Any UE4SS key name works: F1-F12, NUM_ZERO, INS, DEL, etc.
-# Avoid F10 — UE4SS's ConsoleEnablerMod already uses it.
+# Avoid F10 - UE4SS's ConsoleEnablerMod already uses it.
+key_menu     = F6
 key_run      = F7
 key_diagnose = F8
 key_unlock   = F9
+key_raise    = F5
+
+# Overlay. Needs ModMenu at Mods/shared/ModMenu/ModMenu.lua (bundled in the
+# release zip). Set false for a keybind-only install.
+menu_enabled    = false
+menu_font_scale = 1.6
+
+# left or right
+menu_dock = left
+
+# engine  = let the game's own cursor drive the menu
+# modmenu = ModMenu draws its own pointer (for games that hide the cursor)
+menu_cursor_mode = engine
+
+# ModMenu adds its panel at z=1000; this game's HUD draws above that, so the
+# panel is re-added at this z each time it opens. 0 disables.
+menu_z = 30000
+
+# Verbose ModMenu tracing into UE4SS.log. Turn on if the panel never appears.
+menu_debug = false
 
 # Commands that wipe progress (clearrolebag, clearitem, clearcard, ...) are
 # skipped unless this is true. clearrolebag sets your character to level 0 and
 # empties bag, talents and spells. There is no undo.
 allow_dangerous = false
+# File watcher. Runs any command appended to live.txt, no keypress needed.
+# This is what tools/console.ps1 talks to.
+watch_enabled     = false
+watch_interval_ms = 500

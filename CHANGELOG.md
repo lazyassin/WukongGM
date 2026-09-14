@@ -26,3 +26,23 @@ Initial release.
 ### Notes
 - Requires only RE-UE4SS. No CSharpLoader, ReShade or console mod.
 - Everything resolves by name at runtime, so no per-patch offset updates.
+
+## [1.0.1] — 2026-09-14
+
+### Changed
+- Overlay (ModMenu) and the file watcher now ship **disabled by default**.
+  Both build without error but do not function on the game build tested:
+  the overlay's widget tree exists and reports open yet never renders, and
+  `ExecuteInGameThreadWithDelay` never fires the watcher's callback.
+  Keybinds remain the supported path and are unaffected.
+
+### Added
+- `compat.lua` — adds `UEHelpers.GetGameInstance` at runtime when the
+  installed UEHelpers is v2. Patches the loaded module rather than replacing
+  the file, so other mods are untouched.
+- `tools/console.ps1` — external command console for the watcher (experimental).
+- `THIRD-PARTY.md`.
+
+### Fixed
+- Overlay root-widget lookup matched on the full object path, which matched
+  descendants instead of the shell. Now matches the object's own name.

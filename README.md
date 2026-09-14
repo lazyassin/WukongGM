@@ -125,6 +125,24 @@ Press **F8** and check `ue4ss\UE4SS.log`.
 A dispatched command only means the call was made. An unimplemented command
 returns cleanly and does nothing, so always verify in game.
 
+
+## Experimental: overlay and file watcher
+
+The repo also contains an in-game overlay (ModMenu) and a file watcher driven
+by `tools/console.ps1`. **Both ship disabled**, because neither works on the
+game build this was developed against:
+
+- **Overlay** — the panel builds correctly (all sections register, `IsOpen`
+  returns true, the widget tree exists) but never renders. This game's Slate
+  structs differ from the ones ModMenu targets: `EditableTextBoxStyle` has no
+  `TextStyle`, and `SetInputMode_GameAndUIEx` takes 4 parameters rather than 5.
+  Raising the widget's Z order above the game HUD did not help.
+- **Watcher** — `ExecuteInGameThreadWithDelay` never invokes the scheduled
+  callback on this build, so queued commands are never consumed.
+
+Enable them in `config.txt` (`menu_enabled`, `watch_enabled`) if you want to
+experiment. The keybind path does not depend on either.
+
 ## License
 
 MIT — see [LICENSE](LICENSE).
