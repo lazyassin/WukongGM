@@ -243,6 +243,23 @@ Skipped unless `allow_dangerous = true` in `config.txt`. No undo.
 | `6004` | Fragrant Jade Flower Seed |
 | `6005` | Fire Bellflower Seed |
 
+## Things that do not work
+
+Confirmed by testing, so nobody repeats them:
+
+**There is no way to remove Sparks.** No `costexp` command exists, and
+`addexp` with a negative value dispatches successfully and changes nothing -
+the game clamps it. Reloading an earlier save is the only route.
+
+**A dispatched command proves nothing.** `addexp -100000` logs
+`-> RunScriptGM` and `dispatched 1/1` while doing absolutely nothing. The log
+reports that the call was made, not that the game acted on it. Always check in
+game.
+
+**Removing a currency would not reduce your power anyway.** Sparks are spent
+on the skill tree and stay spent; taking the currency back only stops you
+buying more.
+
 ## Finding item IDs
 
 IDs are grouped in blocks. Probe a range and see what you end up holding 500 of:
