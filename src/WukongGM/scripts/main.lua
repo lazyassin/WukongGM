@@ -19,7 +19,7 @@ local commands = require("commands")
 local items    = require("items")
 
 local MOD_NAME    = "WukongGM"
-local MOD_VERSION = "1.0.1"
+local MOD_VERSION = "1.1.0"
 local CONFIG_PATH = "ue4ss/Mods/WukongGM/config.txt"
 
 local Log = gm.Log
@@ -95,6 +95,7 @@ local config = {
     key_diagnose = "F8",
     key_unlock   = "F9",
     key_raise    = "F5",
+    key_dump     = "F4",
     allow_dangerous = false,
     menu_enabled     = false,
     menu_font_scale  = "1.6",
@@ -171,6 +172,89 @@ local function RunPreset(name)
     Log("preset: " .. name)
     local sent, total = gm.RunAll(preset)
     Log(string.format("dispatched %d/%d — verify in game", sent, total))
+end
+
+--- Dump every equipment id the game knows about.
+---
+--- GetAllEquipId returns bare integers with no names, so this tells you which
+--- ids are valid equipment, not what they are. Pair it with `additem <id> 1`
+--- to identify individual entries. Written to a file because the list runs to
+--- hundreds and the log is awkward to harvest from.
+local function DumpEquipIds()
+    local cs = gm.GetCSLibrary()
+    if not cs then
+        Log("BGUFunctionLibraryCS not resolved - load into gameplay first")
+        return
+    end
+
+    local ids = {}
+    local ok, err = pcall(function()
+        local arr = cs:GetAllEquipId()
+        if not arr then return end
+
+        -- UE4SS returns TArray differently across builds. Report what we got,
+        -- then try each access pattern rather than assuming one.
+        Log("GetAllEquipId returned a " .. type(arr))
+        for _, name in ipairs({ "ForEach", "GetArrayNum", "Num", "Length", "get" }) do
+            local hasIt = select(2, pcall(function() return type(arr[name]) end))
+            Log("   ." .. name .. " = " .. tostring(hasIt))
+        end
+
+        -- 1. plain Lua table
+        if type(arr) == "table" then
+            for _, v in ipairs(arr) do table.insert(ids, tostring(v)) end
+            if #ids > 0 then return end
+        end
+
+        -- 2. newer UE4SS wrapper
+        if pcall(function() return arr.ForEach end) and type(arr.ForEach) == "function" then
+            arr:ForEach(function(_, v) table.insert(ids, tostring(v:get())) end)
+            if #ids > 0 then return end
+        end
+
+        -- 3. numeric index, 1-based then 0-based
+        local n = nil
+        pcall(function() n = arr:GetArrayNum() end)
+        if n == nil then pcall(function() n = #arr end) end
+        if type(n) == "number" and n > 0 then
+            Log("   array length = " .. n)
+            for base = 1, 0, -1 do
+                for i = base, n - 1 + base do
+                    local v = nil
+                    pcall(function() v = arr[i] end)
+                    if v ~= nil then
+                        local raw = v
+                        pcall(function() if type(v.get) == "function" then raw = v:get() end end)
+                        table.insert(ids, tostring(raw))
+                    end
+                end
+                if #ids > 0 then break end
+            end
+        end
+    end)
+
+    if not ok then
+        Log("GetAllEquipId failed: " .. tostring(err))
+        return
+    end
+    if #ids == 0 then
+        Log("GetAllEquipId returned nothing")
+        return
+    end
+
+    local NL = string.char(10)
+    local path = "ue4ss/Mods/WukongGM/equip_ids.txt"
+    local file = io.open(path, "w")
+    if file then
+        file:write("# equipment ids reported by GetAllEquipId()" .. NL)
+        file:write("# identify one with:  additem <id> 1" .. NL)
+        file:write(table.concat(ids, NL) .. NL)
+        file:close()
+        Log(string.format("wrote %d equipment ids to %s", #ids, path))
+    else
+        Log("could not write " .. path .. " - ids follow")
+        for _, id in ipairs(ids) do Log("  " .. id) end
+    end
 end
 
 --------------------------------------------------------------------------
@@ -258,6 +342,7 @@ local bindings = {
     { key = config.key_diagnose, fn = Diagnose,                              label = "diagnostics" },
     { key = config.key_unlock,   fn = function() RunPreset("unlock_all") end, label = "unlock-all preset" },
     { key = config.key_raise,    fn = function() RaiseOverlay(tonumber(config.menu_z) or 30000) end, label = "raise overlay above game UI" },
+    { key = config.key_dump,     fn = DumpEquipIds,                          label = "dump equipment ids" },
 }
 
 for _, b in ipairs(bindings) do

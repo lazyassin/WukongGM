@@ -46,3 +46,20 @@ Initial release.
 ### Fixed
 - Overlay root-widget lookup matched on the full object path, which matched
   descendants instead of the shell. Now matches the object's own name.
+
+## [1.1.0] — 2026-09-14
+
+### Added
+- Item ID database: 74 ids across 9 categories (currency, formulas, wine,
+  medicine, soak ingredients, herbs, curios, crafting materials, seeds), with
+  category grouping and lookup helpers in `items.lua`.
+- `commands.txt` now ships every known id as a commented line — uncomment and
+  press F7 rather than hunting for numbers.
+- Full id table in `docs/commands.md`.
+- `F4` dumps the game's equipment ids via `GetAllEquipId()` to
+  `equip_ids.txt`, for mapping the equipment range.
+
+### Notes
+- Only `1002` (Will) is verified by this project. The rest are community
+  reported and marked accordingly; ids are facts about the game, not anyone's
+  authorship.

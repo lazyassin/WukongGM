@@ -43,3 +43,99 @@ additem 1002 100000
 
 # --- DANGEROUS: wipes progress, requires allow_dangerous = true ---
 # clearrolebag            # level 0, empties bag / talents / spells
+
+# ---------------------------------------------------------------------------
+# Known item ids. Uncomment what you want, set your own quantity.
+# ---------------------------------------------------------------------------
+
+# --- Currency ---
+# additem 1002  10    # Will   # VERIFIED
+
+# --- Formulas ---
+# additem 1113  10    # Ascension Powder Formula
+# additem 1144  10    # Evil Repelling Medicament Formula
+# additem 1166  10    # Enhanced Ginseng Pellets Formula
+# additem 1168  10    # Enhanced Tiger Subduing Pellets Formula
+
+# --- Wine and brewing ---
+# additem 1998  10    # Awaken Wine Worm
+# additem 1999  10    # Luojia Fragrant Vine
+# additem 2001  10    # Coconut Wine
+# additem 2012  10    # Loong Balm
+
+# --- Medicine and pellets ---
+# additem 2204  10    # Body-Warming Powder
+# additem 2205  10    # Antimiasma Powder
+# additem 2206  10    # Shock-Quelling Powder
+# additem 2211  10    # Life-Saving Pill
+# additem 2213  10    # Ascension Powder
+# additem 2221  10    # Tonifying Enhancing Medicine
+# additem 2224  10    # Amplification Pellets
+# additem 2227  10    # Tiger Subduing Pellets
+# additem 2230  10    # Longevity Enhancing Medicine
+# additem 2234  10    # Fortifying Medicament
+# additem 2247  10    # Evil Repelling Medicament
+# additem 2251  10    # Enhanced Ginseng Pellets
+# additem 2253  10    # Enhanced Tiger Subduing Pellets
+# additem 2402  10    # Incense Trail Talisman
+
+# --- Soak ingredients ---
+# additem 2305  10    # Mount Lingtai Seedlings
+# additem 2310  10    # Laurel Buds
+# additem 2313  10    # Deathstinger
+# additem 2314  10    # Purple-Veined Peach Pit
+# additem 2315  10    # Bee Mountain Stone
+# additem 2319  10    # Goji Shoots
+# additem 2320  10    # Fruit of Dao
+# additem 2323  10    # Gall Gem
+
+# --- Herbs and ores ---
+# additem 3201  10    # Licorice
+# additem 3202  10    # Aged Ginseng
+# additem 3203  10    # Fragrant Jade Flower
+# additem 3204  10    # Purple Lingzhi
+# additem 3205  10    # Fire Bellflower
+# additem 3206  10    # Gentian
+# additem 3207  10    # Tree Pearl
+# additem 3208  10    # Celestial Pear
+# additem 3209  10    # Withered Silkworm
+# additem 3214  10    # Nine-Capped Lingzhi
+# additem 3215  10    # Flame Ore
+# additem 3216  10    # Jade Lotus
+# additem 3217  10    # Snake-Head Mushroom
+# additem 3219  10    # Golden Lotus
+
+# --- Curios and valuables ---
+# additem 3003  10    # Mind Core
+# additem 3301  10    # Tadpole
+# additem 3302  10    # Gold Ridge Beast
+# additem 3305  10    # Buddha's Right Hand
+# additem 3306  10    # Tiny Piece of Gold
+# additem 3307  10    # Small Piece of Gold
+# additem 3308  10    # Large Piece of Gold
+# additem 3309  10    # Blood of the Iron Bull
+# additem 3310  10    # Knot of Voidness
+
+# --- Crafting materials ---
+# additem 3594  10    # Celestial Ribbon
+# additem 3901  10    # Jade Fang
+# additem 3902  10    # Flame Ebongold
+# additem 3906  10    # Spider Leg
+# additem 3916  10    # Starlit Cloud-Bidden Antler
+# additem 3921  10    # Loong Pearl
+# additem 3925  10    # Sky-Piercing Horn
+# additem 3929  10    # Venomous Hair
+# additem 3950  10    # Yarn
+# additem 3951  10    # Silk
+# additem 3952  10    # Cold Iron Leaves
+# additem 3953  10    # Fine Gold Thread
+# additem 3958  10    # Stone Spirit
+# additem 3959  10    # Yaoguai Core
+# additem 3960  10    # Refined Iron Sand
+# additem 3961  10    # Gold Tree Core
+# additem 3962  10    # Kun Steel
+
+# --- Seeds ---
+# additem 6002  10    # Nine-Capped Lingzhi Seed
+# additem 6004  10    # Fragrant Jade Flower Seed
+# additem 6005  10    # Fire Bellflower Seed

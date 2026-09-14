@@ -122,6 +122,127 @@ Skipped unless `allow_dangerous = true` in `config.txt`. No undo.
 | `clearmeditation` | wipe all shrines |
 | `clearinterfunc` | wipe interactive functions |
 
+## Item IDs
+
+### Currency
+
+| id | item |
+|----|------|
+| `1002` | Will **(verified)** |
+
+### Formulas
+
+| id | item |
+|----|------|
+| `1113` | Ascension Powder Formula |
+| `1144` | Evil Repelling Medicament Formula |
+| `1166` | Enhanced Ginseng Pellets Formula |
+| `1168` | Enhanced Tiger Subduing Pellets Formula |
+
+### Wine and brewing
+
+| id | item |
+|----|------|
+| `1998` | Awaken Wine Worm |
+| `1999` | Luojia Fragrant Vine |
+| `2001` | Coconut Wine |
+| `2012` | Loong Balm |
+
+### Medicine and pellets
+
+| id | item |
+|----|------|
+| `2204` | Body-Warming Powder |
+| `2205` | Antimiasma Powder |
+| `2206` | Shock-Quelling Powder |
+| `2211` | Life-Saving Pill |
+| `2213` | Ascension Powder |
+| `2221` | Tonifying Enhancing Medicine |
+| `2224` | Amplification Pellets |
+| `2227` | Tiger Subduing Pellets |
+| `2230` | Longevity Enhancing Medicine |
+| `2234` | Fortifying Medicament |
+| `2247` | Evil Repelling Medicament |
+| `2251` | Enhanced Ginseng Pellets |
+| `2253` | Enhanced Tiger Subduing Pellets |
+| `2402` | Incense Trail Talisman |
+
+### Soak ingredients
+
+| id | item |
+|----|------|
+| `2305` | Mount Lingtai Seedlings |
+| `2310` | Laurel Buds |
+| `2313` | Deathstinger |
+| `2314` | Purple-Veined Peach Pit |
+| `2315` | Bee Mountain Stone |
+| `2319` | Goji Shoots |
+| `2320` | Fruit of Dao |
+| `2323` | Gall Gem |
+
+### Herbs and ores
+
+| id | item |
+|----|------|
+| `3201` | Licorice |
+| `3202` | Aged Ginseng |
+| `3203` | Fragrant Jade Flower |
+| `3204` | Purple Lingzhi |
+| `3205` | Fire Bellflower |
+| `3206` | Gentian |
+| `3207` | Tree Pearl |
+| `3208` | Celestial Pear |
+| `3209` | Withered Silkworm |
+| `3214` | Nine-Capped Lingzhi |
+| `3215` | Flame Ore |
+| `3216` | Jade Lotus |
+| `3217` | Snake-Head Mushroom |
+| `3219` | Golden Lotus |
+
+### Curios and valuables
+
+| id | item |
+|----|------|
+| `3003` | Mind Core |
+| `3301` | Tadpole |
+| `3302` | Gold Ridge Beast |
+| `3305` | Buddha's Right Hand |
+| `3306` | Tiny Piece of Gold |
+| `3307` | Small Piece of Gold |
+| `3308` | Large Piece of Gold |
+| `3309` | Blood of the Iron Bull |
+| `3310` | Knot of Voidness |
+
+### Crafting materials
+
+| id | item |
+|----|------|
+| `3594` | Celestial Ribbon |
+| `3901` | Jade Fang |
+| `3902` | Flame Ebongold |
+| `3906` | Spider Leg |
+| `3916` | Starlit Cloud-Bidden Antler |
+| `3921` | Loong Pearl |
+| `3925` | Sky-Piercing Horn |
+| `3929` | Venomous Hair |
+| `3950` | Yarn |
+| `3951` | Silk |
+| `3952` | Cold Iron Leaves |
+| `3953` | Fine Gold Thread |
+| `3958` | Stone Spirit |
+| `3959` | Yaoguai Core |
+| `3960` | Refined Iron Sand |
+| `3961` | Gold Tree Core |
+| `3962` | Kun Steel |
+
+### Seeds
+
+| id | item |
+|----|------|
+| `6002` | Nine-Capped Lingzhi Seed |
+| `6004` | Fragrant Jade Flower Seed |
+| `6005` | Fire Bellflower Seed |
+
 ## Finding item IDs
 
 IDs are grouped in blocks. Probe a range and see what you end up holding 500 of:

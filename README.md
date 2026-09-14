@@ -79,19 +79,28 @@ The parser strips BOMs defensively, but other tools may not.
 
 ## Known item IDs
 
-| id | item |
-|----|------|
-| 1002 | Will (levelling and crafting currency) |
+74 ids across 9 categories, listed in `docs/commands.md` and pre-written as
+commented lines in `commands.txt` — uncomment what you want and press F7.
 
-Only verified IDs are listed — a wrong ID silently grants the wrong item.
-To find more, probe a block and see what you end up holding 500 of:
+Ids cluster by category, which makes finding unknown ones cheap:
+
+| block | contents |
+|-------|----------|
+| `1xxx` | currency, formulas |
+| `2xxx` | medicine, wine, soak ingredients |
+| `3xxx` | herbs, curios, crafting materials |
+| `6xxx` | seeds |
+
+Only `1002` (Will) is confirmed by this project; the rest are community
+reported. A wrong id grants the wrong item — harmless, but check before
+trusting one. PRs confirming ids are welcome.
+
+To find unmapped ones, probe a block and see what you end up holding 500 of:
 
 ```
-additem 1020 500
-additem 1021 500
+additem 3220 500
+additem 3221 500
 ```
-
-PRs adding verified IDs are very welcome.
 
 ## Commands
 

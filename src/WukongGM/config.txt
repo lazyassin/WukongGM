@@ -9,6 +9,7 @@ key_run      = F7
 key_diagnose = F8
 key_unlock   = F9
 key_raise    = F5
+key_dump     = F4
 
 # Overlay. Needs ModMenu at Mods/shared/ModMenu/ModMenu.lua (bundled in the
 # release zip). Set false for a keybind-only install.
